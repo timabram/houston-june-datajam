@@ -1,6 +1,6 @@
 # Houston Data Viz, 20150606
 
-setwd("C:/Users/Tim/Desktop/Houston Data Viz/test/")
+setwd("C:/Users/Tim/Desktop/houston-june-datajam/test/")
 HospitalPrices <-read.csv("HospitalPrices.csv")
 
 delta_price <- (HospitalPrices$AveragedCoveredCharges - HospitalPrices$AverageTotalPayments)/
@@ -34,7 +34,7 @@ mdc_plot <-subset(HospitalPrices, MDC=="MDC 05")
 # Viz 1) US Map
 map <-qmap("united states", zoom=4, color="bw", legend = "none")
 map1 <-map +  geom_point(data=mdc_plot, aes(x=lon, y=lat, color=delta_price, alpha=0.2, size=Freq)) +
-  scale_colour_continuous(low="blue", high="red")+ggtitle("US_TP-2500")
+  scale_colour_continuous(low="green", high="yellow")+ggtitle("US_TP-2500")
 pdf("US_MDC05.pdf", width = 11, height = 8.5)
 print(map1)
 dev.off()
@@ -42,7 +42,7 @@ dev.off()
 # Viz 2) WV Focus
 map <-qmap("west virginia", zoom=6, color="bw", legend = "none")
 map2 <-map +  geom_point(data=mdc_plot, aes(x=lon, y=lat, color=delta_price, alpha=0.2, size=Freq)) +
-  scale_colour_continuous(low="blue", high="red")+ggtitle("WV_TP-2500")
+  scale_colour_continuous(low="green", high="yellow")+ggtitle("WV_TP-2500")
 pdf("WV_MDC05.pdf", width = 11, height = 8.5)
 print(map2)
 dev.off()
